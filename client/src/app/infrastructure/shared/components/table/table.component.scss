@@ -1,0 +1,33 @@
+table {
+	width: 100%;
+}
+
+th, td {
+	overflow: hidden;
+	width: 200px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+th.mat-header-cell {
+	color: black;
+	font-weight: bold;
+}
+
+.container {
+	position: relative;
+	overflow: auto;
+}
+
+.loader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 56px;
+	right: 0;
+	background: rgba(0, 0, 0, 0.05);
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

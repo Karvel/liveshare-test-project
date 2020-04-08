@@ -1,0 +1,10 @@
+<mat-spinner class="loader" *ngIf="!forecasts?.results"></mat-spinner>
+<ng-container *ngIf="forecasts?.results">
+  <s3-table
+    [displayedColumns]="displayedColumns"
+    [isLoadingResults]="isLoadingResults"
+    [tableData]="forecasts"
+  ></s3-table>
+</ng-container>
+
+<button mat-button (click)="updateList()">Update</button>

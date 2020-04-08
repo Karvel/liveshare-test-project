@@ -1,0 +1,24 @@
+<mat-spinner class="loader" *ngIf="!tableData?.results"></mat-spinner>
+<div class="container" *ngIf="displayedColumns">
+  <div class="loader" *ngIf="isLoadingResults">
+    <mat-spinner></mat-spinner>
+  </div>
+	<div [ngStyle]="{'display':showGrid()}">
+		<table
+			#table
+			mat-table
+			[dataSource]="tableData?.results"
+			*ngIf="columnIdList.length"
+		>
+			<tr mat-header-row *matHeaderRowDef="columnIdList"></tr>
+			<tr mat-row *matRowDef="let row; columns: columnIdList;"></tr>
+			<ng-container *ngFor="let col of displayedColumns; trackBy: trackByColumnId" [matColumnDef]=col.columnId>
+				<th mat-header-cell *matHeaderCellDef> {{ col.columnName }} </th>
+				<td mat-cell *matCellDef="let row"> {{ row[col.columnId] }} </td>
+			</ng-container>
+		</table>
+	</div>
+	<div *ngIf="!isLoadingResults && !tableData?.results.length">
+		There is no data to display.
+	</div>
+</div>
