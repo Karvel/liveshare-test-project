@@ -35,8 +35,10 @@ jobs:
             export CI=true
             yarn install
             yarn build
-            yarn test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+            yarn test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI
             cd ..
+      - store_artifacts:
+          path: coverage
       - run:
           name: Persist liveshare-test-project/client build
           command: |
