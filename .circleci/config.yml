@@ -36,7 +36,7 @@ jobs:
             yarn install
             yarn lint
             yarn build
-            yarn test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI
+            yarn test-ci
             cd ..
       - store_artifacts:
           path: client/coverage
