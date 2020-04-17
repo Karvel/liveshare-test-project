@@ -39,7 +39,7 @@ jobs:
             yarn test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI
             cd ..
       - store_artifacts:
-          path: coverage
+          path: client/coverage
       - run:
           name: Persist liveshare-test-project/client build
           command: |
