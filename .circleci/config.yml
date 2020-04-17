@@ -1,0 +1,55 @@
+version: 2.1
+jobs:
+  test-server:
+    working_directory: ~/liveshare-test-project
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    steps:
+      - checkout
+      # Restore dependencies
+      - run:
+          name: Restore
+          command: |
+            cd server
+            dotnet restore
+            cd ..
+      # Test the source code
+      - run:
+          name: Build
+          command: |
+            cd server
+            dotnet build -c Release
+            cd ..
+
+  test-client:
+    working_directory: ~/liveshare-test-project
+    docker:
+      - image: "circleci/node:10-browsers"
+    steps:
+      - checkout
+      - run: sudo apt-get update
+      - run:
+          name: Install, audit, and test frontend
+          command: |
+            cd client
+            export CI=true
+            yarn install
+            yarn build
+            yarn test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+            cd ..
+      - run:
+          name: Persist liveshare-test-project/client build
+          command: |
+            cd client
+            yarn build
+            cd ..
+      - persist_to_workspace:
+          root: /home/circleci
+          paths:
+            - liveshare-test-project/client
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test-server
+      - test-client
