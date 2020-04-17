@@ -34,6 +34,7 @@ jobs:
             cd client
             export CI=true
             yarn install
+            yarn lint
             yarn build
             yarn test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI
             cd ..
