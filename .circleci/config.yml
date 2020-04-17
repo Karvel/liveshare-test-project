@@ -29,7 +29,7 @@ jobs:
       - checkout
       - run: sudo apt-get update
       - run:
-          name: Install, audit, and test frontend
+          name: Install, lint, and test frontend
           command: |
             cd client
             export CI=true
