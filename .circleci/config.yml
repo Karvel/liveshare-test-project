@@ -46,6 +46,7 @@ jobs:
             cd client
             yarn build
             cd ..
+      # Cache build for deployment
       - persist_to_workspace:
           root: /home/circleci
           paths:
