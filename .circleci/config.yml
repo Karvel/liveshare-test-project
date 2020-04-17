@@ -1,5 +1,26 @@
 version: 2.1
 jobs:
+  test-server:
+    working_directory: ~/liveshare-test-project
+    docker:
+      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
+    steps:
+      - checkout
+      # Restore dependencies
+      - run:
+          name: Restore
+          command: |
+            cd server
+            dotnet restore
+            cd ..
+      # Test the source code
+      - run:
+          name: Build
+          command: |
+            cd server
+            dotnet build -c Release
+            cd ..
+
   test-client:
     working_directory: ~/liveshare-test-project
     docker:
@@ -26,30 +47,9 @@ jobs:
           root: /home/circleci
           paths:
             - liveshare-test-project/client
-
-  test-server:
-    working_directory: ~/liveshare-test-project
-    docker:
-      - image: mcr.microsoft.com/dotnet/core/sdk:3.1
-    steps:
-      - checkout
-      # Restore dependencies
-      - run:
-          name: Restore
-          command: |
-            cd server
-            dotnet restore
-            cd ..
-      # Test the source code
-      - run:
-          name: Build
-          command: |
-            cd server
-            dotnet build -c Release
-            cd ..
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - test-client
       - test-server
+      - test-client
