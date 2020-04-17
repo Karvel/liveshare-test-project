@@ -29,20 +29,24 @@ jobs:
       - checkout
       - run: sudo apt-get update
       - run:
-          name: Install, audit, and test frontend
+          name: Install, lint, and test frontend
           command: |
             cd client
             export CI=true
             yarn install
+            yarn lint
             yarn build
-            yarn test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+            yarn test-ci
             cd ..
+      - store_artifacts:
+          path: client/coverage
       - run:
           name: Persist liveshare-test-project/client build
           command: |
             cd client
             yarn build
             cd ..
+      # Cache build for deployment
       - persist_to_workspace:
           root: /home/circleci
           paths:
