@@ -41,7 +41,7 @@ jobs:
       - store_artifacts:
           path: client/coverage
       - run:
-          name: Send to Codeov
+          name: Send to Codecov
           command: "bash <(curl -s https://codecov.com/bash) -t $CODECOV_TOKEN"
       - run:
           name: Persist liveshare-test-project/client build
