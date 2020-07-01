@@ -42,7 +42,7 @@ jobs:
           path: client/coverage
       - run:
           name: Send to Codeov
-          command: "bash <(curl -s https://codecov.com/bash)"
+          command: "bash <(curl -s https://codecov.com/bash) -t $CODECOV_TOKEN"
       - run:
           name: Persist liveshare-test-project/client build
           command: |
