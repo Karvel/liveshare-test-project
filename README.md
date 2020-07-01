@@ -1,6 +1,9 @@
 # Live Share Test Project
 
-[![Karvel](https://circleci.com/gh/Karvel/liveshare-test-project.svg?style=shield)](https://circleci.com/gh/Karvel/liveshare-test-project)
+|Branch|Status|Coverage|
+|---|---|---|
+|development|[![Karvel](https://circleci.com/gh/Karvel/liveshare-test-project.svg?style=shield)](https://circleci.com/gh/Karvel/liveshare-test-project)|[![Coverage Status](https://coveralls.io/repos/github/Karvel/liveshare-test-project/badge.svg?branch=master)](https://coveralls.io/github/Karvel/liveshare-test-project)|
+|master|[![Karvel](https://circleci.com/gh/Karvel/liveshare-test-project/tree/master.svg?style=shield)](https://circleci.com/gh/Karvel/liveshare-test-project/tree/master)|[![Coverage Status](https://coveralls.io/repos/github/Karvel/liveshare-test-project/badge.svg?branch=master)](https://coveralls.io/github/Karvel/liveshare-test-project?branch=master)|
 
 ## Introduction
 
