@@ -20,7 +20,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
-        run: cat ./package.json
+        run: cat ./client/package.json
       - name: 'Setup Node.js'
         uses: 'actions/setup-node@v1'
         with:
@@ -35,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR: 'client'
       - name: 'cat package.json'
-        run: cat ./package.json
+        run: cat ./client/package.json
       - name: 'Output Step'
         env:
           NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
