@@ -10,7 +10,7 @@ This is a sandbox project that can be used to test Live Share. I made it to acco
 
 ### Automation
 
-This repository uses a GitHub Action to automatically increment the `package.json` version number.
+This repository uses a GitHub Action to automatically increment the `package.json` version number. It should only target the `client` folder.
 
 ## Todo
 
