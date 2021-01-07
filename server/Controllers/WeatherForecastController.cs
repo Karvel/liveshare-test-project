@@ -26,6 +26,7 @@ namespace LiveshareTestProject.Controllers
         [HttpGet]
         public WeatherForecastList Get()
         {
+            // Adding a comment to test GitHub Action.
             var rng = new Random();
             var weatherForecastList = new WeatherForecastList();
             weatherForecastList.Results = Enumerable.Range(1, 5).Select(index => new WeatherForecast
