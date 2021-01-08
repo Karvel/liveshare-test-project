@@ -38,6 +38,7 @@ jobs:
         with:
           tag-prefix: ''
           target-branch: 'development'
+          patch-wording: 'patch,fixes,fix'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PACKAGEJSON_DIR: 'client'
